@@ -1,5 +1,5 @@
 """Choicesets for thola nautobot."""
-from nautobot.utilities.choices import ChoiceSet
+from nautobot.core.choices import ChoiceSet
 
 
 class TholaOnboardingStatusChoice(ChoiceSet):

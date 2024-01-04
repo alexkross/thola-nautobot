@@ -1,7 +1,7 @@
 """Tables for thola nautobot."""
 import django_tables2 as tables
 
-from nautobot.utilities.tables import BaseTable, ToggleColumn
+from nautobot.core.tables import BaseTable, ToggleColumn
 
 from .models import TholaConfig, TholaOnboarding
 

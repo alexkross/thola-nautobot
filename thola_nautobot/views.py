@@ -1,8 +1,8 @@
 """Views for thola nautobot."""
 from django.shortcuts import render
 from nautobot.core.views import generic
-from nautobot.utilities.forms import restrict_form_fields
-from nautobot.utilities.utils import normalize_querydict
+from nautobot.core.forms import restrict_form_fields
+from nautobot.core.utils.requests import normalize_querydict
 
 from . import models, tables, forms
 from .models import TholaConfig

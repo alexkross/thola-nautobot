@@ -1,30 +1,38 @@
 """Plugin additions to the Nautobot navigation menu."""
-from nautobot.extras.plugins import PluginMenuItem, PluginMenuButton
-from nautobot.utilities.choices import ButtonColorChoices
+from nautobot.apps.ui import NavMenuGroup, NavMenuItem, NavMenuTab
+from nautobot.core.apps import NavMenuAddButton
+#from nautobot.core.choices import ButtonActionColorChoices #, ButtonActionIconChoices
 
-menu_items = (
-    PluginMenuItem(
+items = (
+    NavMenuItem(
         link="plugins:thola_nautobot:tholaconfig_list",
-        link_text="Configurations",
+        name="Configurations",
         buttons=(
-            PluginMenuButton(
+            NavMenuAddButton(
                 link="plugins:thola_nautobot:tholaconfig_add",
                 title="Add",
                 icon_class="mdi mdi-plus-thick",
-                color=ButtonColorChoices.GREEN,
+                #button_class=ButtonActionColorChoices.GREEN,
             ),
         ),
     ),
-    PluginMenuItem(
+    NavMenuItem(
         link="plugins:thola_nautobot:tholaonboarding_list",
-        link_text="Onboardings",
+        name="Onboardings",
         buttons=(
-            PluginMenuButton(
+            NavMenuAddButton(
                 link="plugins:thola_nautobot:tholaonboarding_add",
                 title="Add",
                 icon_class="mdi mdi-plus-thick",
-                color=ButtonColorChoices.GREEN
+                #button_class=ButtonActionColorChoices.GREEN
             ),
         ),
+    ),
+)
+
+menu_items = (
+    NavMenuTab(
+        name="Plugins",
+        groups=(NavMenuGroup(name="Thola SNMP", weight=1000, items=tuple(items)),),
     ),
 )

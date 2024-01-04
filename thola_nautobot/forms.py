@@ -2,7 +2,8 @@
 import django_rq
 from django import forms
 from django.conf import settings
-from nautobot.dcim.models import Device, Site, DeviceRole
+from nautobot.dcim.models import Device, Location
+from nautobot.extras.models import Role
 
 from thola_nautobot.choices import TholaOnboardingStatusChoice
 from thola_nautobot.models import TholaConfig, TholaOnboarding
@@ -131,13 +132,13 @@ class TholaOnboardingForm(forms.ModelForm):
     )
 
     site = forms.ModelChoiceField(
-        queryset=Site.objects.all(),
+        queryset=Location.objects.all(),
         required=True,
-        help_text="Site of the device."
+        help_text="Location of the device."
     )
 
     role = forms.ModelChoiceField(
-        queryset=DeviceRole.objects.all(),
+        queryset=Role.objects.all(),
         required=True,
         help_text="Role of the device."
     )

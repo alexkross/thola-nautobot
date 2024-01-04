@@ -1,10 +1,11 @@
 """REST API serializers for thola nautobot."""
-from nautobot.dcim.api.serializers import DeviceSerializer, SiteSerializer, DeviceRoleSerializer
-from rest_framework import serializers
+from nautobot.core.api.serializers import BaseModelSerializer
+from nautobot.extras.api.serializers import RoleSerializer
+from nautobot.dcim.api.serializers import DeviceSerializer, LocationSerializer
 from thola_nautobot.models import TholaConfig, TholaOnboarding
 
 
-class TholaConfigSerializer(serializers.ModelSerializer):
+class TholaConfigSerializer(BaseModelSerializer):
     """Serializer for config API."""
 
     device = DeviceSerializer
@@ -18,12 +19,12 @@ class TholaConfigSerializer(serializers.ModelSerializer):
                   "https_port"]
 
 
-class TholaOnboardingSerializer(serializers.ModelSerializer):
+class TholaOnboardingSerializer(BaseModelSerializer):
     """Serializer for onboarding API."""
 
+    role = RoleSerializer
     device = DeviceSerializer
-    site = SiteSerializer
-    role = DeviceRoleSerializer
+    site = LocationSerializer
 
     class Meta:
         """Meta class for TholaOnboardingSerializer."""

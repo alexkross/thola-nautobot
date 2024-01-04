@@ -1,5 +1,5 @@
 """REST API urls for thola nautobot."""
-from nautobot.core.api import OrderedDefaultRouter
+from nautobot.core.api.routers import OrderedDefaultRouter
 from .views import TholaConfigViews, TholaOnboardingViews
 
 router = OrderedDefaultRouter()

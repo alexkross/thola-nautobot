@@ -2,7 +2,7 @@
 name = "thola-nautobot"
 version = "0.2.0"
 description = "Thola plugin for Nautobot"
-authors = ["Thola Team"]
+authors = ["inexio GmbH", "alexkross"]
 license = "BSD-2-Clause License"
 
 [tool.poetry.dependencies]
@@ -10,7 +10,18 @@ python = "^3.8"
 #nautobot = "~1.0"
 thola-client = "^1.0.2"
 
-[tool.poetry.dev-dependencies]
+#[tool.poetry.dev-dependencies]
+
+[tool.poetry.group.dev.dependencies]
+pylint-nautobot = "^0.2.1"
+
+[tool.pylint.master]
+load-plugins="pylint_nautobot"
+
+[tool.pylint-nautobot]
+supported_nautobot_versions = [
+    "2"
+]
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
