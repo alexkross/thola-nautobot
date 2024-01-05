@@ -1,9 +1,13 @@
 # Thola Nautobot
-![build](https://github.com/inexio/thola-nautobot/actions/workflows/python-package.yml/badge.svg)
+![build](https://github.com/alexkross/thola-nautobot/actions/workflows/python-package.yml/badge.svg)
 
 The Integration of [Thola](https://github.com/inexio/thola) into [Nautobot](https://github.com/nautobot/nautobot)
 
 Thola is a unified interface for communication with network devices. You can use it to retrieve live information of your network devices, independent of their vendor, type or model.
+
+## Important NOTE
+
+This fork is in migration to Nautobot v2. Not ready yet! Only API removals and renames are migrated, jobs still need to be completely overhauled. Please fork and try youself, because this part is postponed.
 
 ## Installation
 
